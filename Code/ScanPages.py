@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import time, platform, sys, subprocess, os, requests, selenium, random, lxml, asyncio
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
