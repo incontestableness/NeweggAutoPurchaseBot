@@ -11,7 +11,8 @@ settings = {
 
 xPaths = {
 
-    "signIn" : '//*[@id="app"]/header/div[1]/div[4]/div[1]/div[1]',
+    "signIn" : '//*[@id="app"]/div[@class="page-content"]/div[@class="page-section personalized-cards-bg black-banner-bg"]'
+               '/div[@class="page-content-inner"]/div/div[1]/div[@class="home-signin"]/a',
     "addToCart" :'//*[@id="ProductBuy"]/div/div[2]/button',
     "noThanks" : '//*[@id="modal-intermediary"]/div/div/div/div[3]/button[1]', #possible
     "checkout" : '//*[@id="modal-intermediary"]/div/div/div[2]/div[2]/button[2]',
