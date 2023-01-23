@@ -1,3 +1,8 @@
+# MILENKO WAS HERE
+
+* Linux version w/ targeting for a specific aftermarket 4090.
+* You need to install `chromium` for your Linux distribution and replace the `chromedriver` binary in `ChromeWebDriver/` with the corresponding version from [here](https://sites.google.com/chromium.org/driver/downloads).
+
 # Newegg Auto Purchase Bot
 
 This is a auto-purchase bot that uses selenium and HTTP requests to check for available products on NewEgg. All the settings you need to configure will be in BotSettings.py Check the requirements folder for dependencies.  
