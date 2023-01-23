@@ -36,7 +36,7 @@ class WebBot:
     #Itterates through links and sends HTTP requests to see if each product link is available.
     #It will return True if a product is in stock. This will send Selenium to the product link that is in stock.
     async def checkLinks(self):
-        
+        print("Checking product links...")
         headers = {"User-Agent":"Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0", "Accept-Encoding":"gzip, deflate", "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "DNT":"1","Connection":"close", "Upgrade-Insecure-Requests":"1"}
         for link in productLinks:
             try:
@@ -55,6 +55,7 @@ class WebBot:
 
     #adds the found item to cart and will dismiss additional offerings.
     def addToCart(self, link):
+        print("Adding to cart...")
         driver.get(link)
         driver.find_element_by_xpath(xPaths["addToCart"]).click()
         time.sleep(1)
@@ -74,6 +75,7 @@ class WebBot:
             print(f"There was an issue trying to purchase an item.\n{link}")
 
     def checkForOffer(self):
+        print("Checking for offer...")
         time.sleep(.5)
         try:
             driver.find_element_by_xpath(xPaths["notInterested"]).click()
@@ -81,6 +83,7 @@ class WebBot:
             pass
 
     def buyItem(self):
+        print("Buying item...")
         cvv = settings["CVV"]
         foundCVV = waitCVV.until(EC.url_contains("/shop/checkout"))
         cvvField = driver.find_element_by_xpath(xPaths["cVV"])
@@ -95,12 +98,14 @@ class WebBot:
 
     #logs in and keeps session open by refreshing randomly between 1 - 200 seconds (asynchronously).
     def startSession(self):
-
+        print("Starting session...")
         if settings["SKIPSIGNIN"]:
             return True
 
         driver.find_element_by_xpath(xPaths["signIn"]).click()
+        print("Waiting for window title...")
         loggedIn = waitFor.until(EC.title_contains("Computer Parts, PC Components, Laptop Computers, LED LCD TV, Digital Cameras and more - Newegg.com"))
+        print("Got window title; logged in...")
 
         if loggedIn:
             return True
@@ -118,6 +123,7 @@ class WebBot:
 
     #calls all methods in correct order
     async def startBot(self):
+        print("Starting bot...")
         driver.get("https://www.newegg.com/")
         session = self.startSession()
         if session:
