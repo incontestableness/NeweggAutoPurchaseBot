@@ -117,7 +117,7 @@ class WebBot:
         print("Submitting password...")
         driver.find_element(By.NAME, "signIn").click()
         print("Waiting for window title...")
-        loggedIn = waitFor.until(EC.title_contains("Computer Parts, PC Components, Laptop Computers, LED LCD TV, Digital Cameras and more - Newegg.com"))
+        loggedIn = waitFor.until(EC.title_contains("and more - Newegg.com"))
         print("Got window title; logged in...")
 
         if loggedIn:
