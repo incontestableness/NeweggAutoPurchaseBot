@@ -1,5 +1,7 @@
 settings = {
 
+    "EMAIL" : "",
+    "PASSWORD" : "",
     "CVV" : "",
     "RTIME" : 1, #Must be a whole number between 0-3
     "DRIVER" : r"ChromeWebDriver/chromedriver", #Path of webdriver

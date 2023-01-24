@@ -2,6 +2,7 @@
 
 import time, platform, sys, subprocess, os, requests, selenium, random, lxml, asyncio
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -103,6 +104,18 @@ class WebBot:
             return True
 
         driver.find_element_by_xpath(xPaths["signIn"]).click()
+        print("Waiting for Sign In page title...")
+        loggedIn = waitFor.until(EC.title_contains("Newegg.com Sign In"))
+        print("Entering email address...")
+        driver.find_element(By.NAME, "signEmail").send_keys(settings["EMAIL"])
+        print("Submitting email address...")
+        driver.find_element(By.NAME, "signIn").click()
+        print("Waiting 1s...")
+        time.sleep(1.000)
+        print("Entering password...")
+        driver.find_element(By.NAME, "password").send_keys(settings["PASSWORD"])
+        print("Submitting password...")
+        driver.find_element(By.NAME, "signIn").click()
         print("Waiting for window title...")
         loggedIn = waitFor.until(EC.title_contains("Computer Parts, PC Components, Laptop Computers, LED LCD TV, Digital Cameras and more - Newegg.com"))
         print("Got window title; logged in...")
