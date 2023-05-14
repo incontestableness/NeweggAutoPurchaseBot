@@ -1,6 +1,10 @@
 # MILENKO WAS HERE
 
-* Linux version w/ targeting for a specific aftermarket 4090.
+## This is a fork of https://github.com/GrilledLambda/NeweggAutoPurchaseBot
+## I stopped working on this at some point, have a look at the Selenium documentation if you're interested in continuing development
+* https://selenium-python.readthedocs.io/navigating.html?highlight=value#filling-in-forms
+
+## Linux version w/ targeting for a specific aftermarket 4090.
 * You need to install `chromium` for your Linux distribution and replace the `chromedriver` binary in `ChromeWebDriver/` with the corresponding version from [here](https://sites.google.com/chromium.org/driver/downloads).
 
 # Newegg Auto Purchase Bot
