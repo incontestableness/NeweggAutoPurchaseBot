@@ -3,6 +3,7 @@ settings = {
     "EMAIL" : "",
     "PASSWORD" : "",
     "CVV" : "",
+    "MAX_PRICE" : 1.00,
     "RTIME" : 1, #Must be a whole number between 0-3
     "DRIVER" : r"ChromeWebDriver/chromedriver", #Path of webdriver
     "LINKS" : r"Resources/ProductLinks.txt", #Path of product links

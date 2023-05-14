@@ -45,8 +45,15 @@ class WebBot:
                 root = lxml.html.fromstring(response.content)
                 button = root.xpath(xPaths["addToCart"])
                 if len(button) > 0:
-                    print("Item Found. IN STOCK")
-                    return link
+                    print(f"Item Found. IN STOCK ({link})")
+                    # Check if the price is acceptable
+                    price = 99999999
+                    print(f"Price: ${price}")
+                    if price <= settings["max_price"]:
+                        print("Price is acceptable!")
+                        return link
+                    else:
+                        print("Too expensive!")
                 else:
                     print("Not Available")
                     await asyncio.sleep(random.randint(settings["RTIME"], 3))
